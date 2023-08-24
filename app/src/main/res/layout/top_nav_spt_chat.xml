@@ -1,0 +1,65 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/white_gray_border_bottom">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/profileToolBar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/backArrow"
+                    android:src="@drawable/ic_backarrow"
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/siri" />
+
+                <TextView
+                    android:layout_toRightOf="@+id/backArrow"
+                    android:id="@+id/profileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/app_name"
+                    android:textSize="22sp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="5dp"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/saveChanges"
+                    android:layout_width="30dp"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/admin" />
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+</merge>
+
+

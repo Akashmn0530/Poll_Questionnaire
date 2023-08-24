@@ -3,7 +3,6 @@ package com.example.pollandvote.chatbot;
 
 public class Message {
 
-    // string to store our message and sender
     private String message;
     private String sender;
 
@@ -17,17 +16,9 @@ public class Message {
     public String getMessage() {
         return message;
     }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     public String getSender() {
         return sender;
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
-    }
 }
 

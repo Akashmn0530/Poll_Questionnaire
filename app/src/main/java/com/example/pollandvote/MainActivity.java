@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import com.example.pollandvote.Admin.AdminLogin;
-import com.example.pollandvote.chatbot.Chatbot;
+import com.example.pollandvote.chatbot.ChatBotActivity;
 
 public class MainActivity extends AppCompatActivity {
     LinearLayout linearLayout_voter, linearLayout_admin;
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         linearLayout_voter.setOnClickListener(v -> {
             linearLayout_voter.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.focus));
             linearLayout_admin.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
-            Intent intent = new Intent(getApplicationContext(), Chatbot.class);
+            Intent intent = new Intent(getApplicationContext(), ChatBotActivity.class);
             startActivity(intent);
         });
         linearLayout_admin.setOnClickListener(v -> {
