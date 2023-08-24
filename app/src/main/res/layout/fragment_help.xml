@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Admin.Profiles.HelpFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/relLay1"
+            android:layout_width="match_parent"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/help"
+                android:textSize="23sp"/>
+
+            <ImageView
+                android:id="@+id/imgClose"
+                android:layout_marginRight="20dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_close"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relLay2"
+            android:layout_below="@+id/relLay1"
+            android:layout_width="match_parent"
+            android:background="#BFD8D8D8"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VERSION"
+                android:textSize="20sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relLay3"
+            android:layout_below="@+id/relLay2"
+            android:layout_width="match_parent"
+            android:background="@drawable/white_gray_border_bottom"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/tvVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VERSION"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relLay4"
+            android:layout_below="@+id/relLay3"
+            android:layout_width="match_parent"
+            android:background="#BFD8D8D8"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONTACT"
+                android:textSize="20sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relLay5"
+            android:layout_below="@+id/relLay4"
+            android:layout_width="match_parent"
+            android:background="@drawable/white_gray_border_bottom"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="email|web"
+                android:text="votingpoll.akrs@gmail.com"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

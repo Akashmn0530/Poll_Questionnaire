@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    android:background="@drawable/square">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimenPaddingCommon"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/notification_background"
+            android:src="@drawable/ic_notifications_black_24dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="@dimen/dimenPaddingCommon"
+            android:layout_marginRight="@dimen/dimenPaddingCommon"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/messageTextView"
+                android:background="#fff0f0f0"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:id="@+id/titleTextView"
+                android:background="#fff0f0f0"
+                android:layout_marginTop="@dimen/dimenPaddingCommon"/>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:id="@+id/timestampTextView"
+                android:background="#fff0f0f0"
+                android:layout_marginTop="@dimen/dimenPaddingCommon"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

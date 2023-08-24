@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context=".Admin.AdminLogin">
+<!--    TO Apps background-->
+<!--    android:background="@android:color/transparent"-->
+    <!-- Nested Transparent Background -->
+    <LinearLayout
+        android:id="@+id/nestedLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/login_background"
+        android:padding="16dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Username EditText -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imageView"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/admin"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"
+            tools:ignore="RedundantNamespace" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/admin_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/baseline_user"
+                android:hint="@string/username"
+                android:textColor="@color/white"
+                android:textColorHint="#FFB300"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Password EditText -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/admin_password"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:inputType="textPassword"
+                android:hint="@string/password"
+                android:drawableEnd="@drawable/ic_password_toggle"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/white"
+                android:drawableStart="@drawable/baseline_password"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onPasswordToggleClick" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="266dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@android:color/white" />
+
+        <!-- Forgot Password Button -->
+        <TextView
+            android:id="@+id/forgotPasswordTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"
+            android:onClick="onTabClick" />
+
+            <!-- Register text Button -->
+        <TextView
+            android:id="@+id/signUpTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="48dp"
+            android:onClick="onTabClick"
+            android:padding="10dp"
+            android:text="@string/sign_up"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
