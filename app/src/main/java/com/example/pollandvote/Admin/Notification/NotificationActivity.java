@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AlertDialog;
@@ -12,10 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pollandvote.Admin.AdminHome;
 import com.example.pollandvote.Admin.FirestoreUtils.ReadData;
 import com.example.pollandvote.Admin.Notification.Adapters.NotificationAdapter;
 import com.example.pollandvote.Admin.bottom_nav.BottomNavigation;
+import com.example.pollandvote.Admin.bottom_nav.TopPopMenu;
 import com.example.pollandvote.R;
+import com.example.pollandvote.Utils.UniversalImageLoader;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -28,6 +32,7 @@ public class NotificationActivity extends AppCompatActivity {
     private List<Notification> notificationList;
     BottomNavigationView bottomNavigationView;
     ProgressBar progressBar;
+    ImageView topbarImage;
 
     @SuppressLint({"MissingInflatedId", "NotifyDataSetChanged"})
     @Override
@@ -36,6 +41,10 @@ public class NotificationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notification);
         progressBar = findViewById(R.id.idProgressBar1);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+
+        topbarImage  = findViewById(R.id.saveChanges);
+        UniversalImageLoader.setImage("", topbarImage, null, "");
 
         //Notification indicator
         BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.navigation_notifications);
@@ -62,6 +71,15 @@ public class NotificationActivity extends AppCompatActivity {
             notificationList.addAll(data);
             adapter.notifyDataSetChanged();
             progressBar.setVisibility(View.GONE);
+        });
+
+        topbarImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Log.d(TAG, "onClick: image clicked");
+                TopPopMenu.showPopMenu(v, NotificationActivity.this);
+            }
         });
 
     }

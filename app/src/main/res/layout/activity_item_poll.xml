@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/questionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textColor="@color/blue"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Poll Question" />
+
+    <TextView
+        android:id="@+id/optionsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/green"
+        android:textSize="20dp"
+        android:text="Options will be displayed here" />
+
+    <TextView
+        android:id="@+id/correctAnswerTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/green"
+        android:textSize="18dp"
+        android:text="Correct Answer: Not Available" />
+
+    <include layout="@layout/divider_item" />
+
+</LinearLayout>

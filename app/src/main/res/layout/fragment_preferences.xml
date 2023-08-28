@@ -2,6 +2,7 @@
 
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
@@ -10,80 +11,162 @@
     android:layout_height="match_parent">
 
 
-        <RelativeLayout
-            android:id="@+id/relLay1"
-            android:layout_width="match_parent"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="10dp">
+    <RelativeLayout
+        android:id="@+id/relLay1"
+        android:layout_width="match_parent"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp">
 
-            <TextView
-                android:layout_alignParentLeft="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/preferences"
-                android:textSize="23sp"/>
+        <TextView
+            android:layout_alignParentStart="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preferences"
+            android:textSize="23sp"/>
 
-            <ImageView
-                android:id="@+id/imgClose"
-                android:layout_marginRight="20dp"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/ic_close"
-                android:layout_alignParentRight="true"/>
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_marginEnd="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_close"
+            android:layout_alignParentEnd="true"/>
 
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/relLay2"
-            android:layout_below="@+id/relLay1"
-            android:layout_width="match_parent"
-            android:background="#BFD8D8D8"
-            android:layout_height="50dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/notifications"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_alignParentBottom="true"/>
-        </RelativeLayout>
+    </RelativeLayout>
 
 
-        <RelativeLayout
-            android:id="@+id/relLay3"
-            android:layout_below="@+id/relLay2"
-            android:layout_width="match_parent"
-            android:background="@drawable/white_gray_border_bottom"
-            android:layout_height="50dp">
+    <RelativeLayout
+        android:id="@+id/relLay2"
+        android:layout_below="@+id/relLay1"
+        android:layout_width="match_parent"
+        android:background="#BFD8D8D8"
+        android:layout_height="50dp">
 
-            <TextView
-                android:id="@+id/tvVersion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Notifications enabled"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/notification_enable_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                />
-
-        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notifications"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="15dp"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
 
 
+    <RelativeLayout
+        android:id="@+id/relLay3"
+        android:layout_below="@+id/relLay2"
+        android:layout_width="match_parent"
+        android:background="@drawable/white_gray_border_bottom"
+        android:layout_height="50dp">
 
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notifications_enabled"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <Switch
+            android:id="@+id/notification_enable_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    </RelativeLayout>
+    <!--    App mode related-->
+
+
+    <RelativeLayout
+        android:id="@+id/appModeID"
+        android:layout_below="@+id/relLay3"
+        android:layout_width="match_parent"
+        android:background="#BFD8D8D8"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/appMode"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="15dp"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/appModeIDOptions"
+        android:layout_below="@+id/appModeID"
+        android:layout_width="match_parent"
+        android:background="@drawable/white_gray_border_bottom"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/appModeIDDefaultTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_btn"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:ignore="RelativeOverlap" />
+
+        <Switch
+            android:id="@+id/mode_default_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/appModeIDOptions1"
+        android:layout_below="@+id/appModeIDOptions"
+        android:layout_width="match_parent"
+        android:background="@drawable/white_gray_border_bottom"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/appModeIDOptionsTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dark_mode_light_mode"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:ignore="RelativeOverlap" />
+
+        <Switch
+            android:id="@+id/mode_enable_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+    </RelativeLayout>
 </RelativeLayout>

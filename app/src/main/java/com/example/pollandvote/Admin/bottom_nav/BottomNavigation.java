@@ -8,6 +8,7 @@ import com.example.pollandvote.Admin.AdminProfile;
 import com.example.pollandvote.Admin.Notification.NotificationActivity;
 import com.example.pollandvote.Admin.Notification.toSend.SendNotifications;
 import com.example.pollandvote.R;
+import com.example.pollandvote.questionnaire.QuestionnaireActivity;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -37,6 +38,9 @@ public class BottomNavigation {
                         SendNotifications.sendNotificationOperations(context);
                     } else if (idd == R.id.navigation_dashboard) {
                         // Dashboard logic
+                        Intent intent=new Intent(context, QuestionnaireActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
                     } else if (idd == R.id.navigation_notifications) {
                         Intent intent = new Intent(context, NotificationActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
