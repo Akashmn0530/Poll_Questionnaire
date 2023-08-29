@@ -3,12 +3,12 @@ package com.example.pollandvote.Admin.bottom_nav;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.pollandvote.Admin.AdminHome;
-import com.example.pollandvote.Admin.AdminProfile;
+import com.example.pollandvote.Admin.homescreen.AdminHome;
+import com.example.pollandvote.Admin.Profiles.AdminProfile;
 import com.example.pollandvote.Admin.Notification.NotificationActivity;
 import com.example.pollandvote.Admin.Notification.toSend.SendNotifications;
 import com.example.pollandvote.R;
-import com.example.pollandvote.questionnaire.QuestionnaireActivity;
+import com.example.pollandvote.Admin.questionnaire.QuestionnaireActivity;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

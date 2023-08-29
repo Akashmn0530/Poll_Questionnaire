@@ -13,13 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pollandvote.Admin.AdminHome;
 import com.example.pollandvote.Admin.FirestoreUtils.ReadData;
 import com.example.pollandvote.Admin.Notification.Adapters.NotificationAdapter;
 import com.example.pollandvote.Admin.bottom_nav.BottomNavigation;
 import com.example.pollandvote.Admin.bottom_nav.TopPopMenu;
 import com.example.pollandvote.R;
-import com.example.pollandvote.Utils.UniversalImageLoader;
+import com.example.pollandvote.Admin.Utils.UniversalImageLoader;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

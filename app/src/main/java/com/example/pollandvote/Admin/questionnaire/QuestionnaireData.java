@@ -1,4 +1,4 @@
-package com.example.pollandvote.questionnaire;
+package com.example.pollandvote.Admin.questionnaire;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,11 +7,7 @@ public class QuestionnaireData {
     private String question;
     private Map<String, String> options = new HashMap<>();
     private String correctAnswer;
-
-    public QuestionnaireData() {
-        // Default constructor required for Firebase
-    }
-
+    public QuestionnaireData(){}
     public QuestionnaireData(String question) {
         this.question = question;
     }

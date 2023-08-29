@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 
@@ -26,11 +27,13 @@ public class PreferencesFragment extends Fragment {
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     private Switch notificationEnableSwitch, appModeThemeSwitch, defaultSwitch;
     RelativeLayout appModeIDOptions;
+    private ImageView imgClose;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_preferences, container, false);
 
+        imgClose = view.findViewById(R.id.imgClose);
         appModeIDOptions = view.findViewById(R.id.appModeIDOptions1);
 
         notificationManager = (NotificationManager) requireContext().getSystemService(Context.NOTIFICATION_SERVICE);
@@ -63,6 +66,19 @@ public class PreferencesFragment extends Fragment {
                 appModeIDOptions.setVisibility(View.VISIBLE);
             }
         });
+
+        imgClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getActivity().getSupportFragmentManager().getBackStackEntryCount()>1){
+                    getActivity().getSupportFragmentManager().popBackStack();
+                }else {
+                    AdminProfile.adminLayout.setVisibility(View.VISIBLE);
+                    getActivity().getSupportFragmentManager().popBackStack();
+                }
+            }
+        });
+
         return view;
     }
 

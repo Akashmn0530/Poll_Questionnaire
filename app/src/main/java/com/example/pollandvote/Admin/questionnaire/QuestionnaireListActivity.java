@@ -1,4 +1,4 @@
-package com.example.pollandvote.questionnaire;
+package com.example.pollandvote.Admin.questionnaire;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,7 +18,6 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class QuestionnaireListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,7 @@ public class QuestionnaireListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_questionnaire_list);
 
         recyclerView = findViewById(R.id.recyclerView);
-        reference = FirebaseDatabase.getInstance().getReference("PollData");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("PollData");
 
         // Fetch data from Firebase and display in RecyclerView
         reference.addValueEventListener(new ValueEventListener() {

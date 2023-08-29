@@ -1,4 +1,4 @@
-package com.example.pollandvote.dialogs;
+package com.example.pollandvote.Admin.dialogs;
 
 import android.content.Context;
 import android.content.DialogInterface;

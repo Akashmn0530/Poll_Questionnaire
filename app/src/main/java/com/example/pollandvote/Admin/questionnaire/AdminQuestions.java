@@ -1,4 +1,4 @@
-package com.example.pollandvote.Admin;
+package com.example.pollandvote.Admin.questionnaire;
 
 import androidx.appcompat.app.AppCompatActivity;
 

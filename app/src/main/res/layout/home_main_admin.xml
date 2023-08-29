@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue">
+    <RelativeLayout
+        android:layout_width="305dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/relativeLayoutLeft"
+        tools:ignore="MissingConstraints">
+<androidx.fragment.app.FragmentContainerView
+    android:layout_width="match_parent"
+    android:layout_height="650dp"
+    android:id="@+id/adminHomeContainerFragment"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutRight"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayoutLeft"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="-202dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/side_poll_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/baseline_addpoll"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/side_questionIdHome"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/side_poll_image"
+            android:layout_marginTop="82dp"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/baseline_question"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/side_chatBot_img"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/side_questionIdHome"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="82dp"
+            android:layout_marginBottom="100dp"
+            android:src="@drawable/ic_chatbot"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,28 +1,19 @@
-package com.example.pollandvote.Admin;
+package com.example.pollandvote.Admin.Profiles;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.example.pollandvote.Admin.Profiles.HelpFragment;
-import com.example.pollandvote.Admin.Profiles.PasswordChangeFragment;
-import com.example.pollandvote.Admin.Profiles.PreferencesFragment;
 import com.example.pollandvote.Admin.bottom_nav.BottomNavigation;
 import com.example.pollandvote.Admin.bottom_nav.TopPopMenu;
 import com.example.pollandvote.R;
-import com.example.pollandvote.Utils.UniversalImageLoader;
-import com.example.pollandvote.dialogs.ConfirmLogoutDialog;
+import com.example.pollandvote.Admin.Utils.UniversalImageLoader;
+import com.example.pollandvote.Admin.dialogs.ConfirmLogoutDialog;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AdminProfile extends AppCompatActivity {
@@ -75,11 +66,21 @@ public class AdminProfile extends AppCompatActivity {
          * setup image
          */
         UniversalImageLoader.setImage(".getProfile_photo()", profile_image, null, "");
+        //Account related...
+        linLay_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adminLayout.setVisibility(View.GONE);
+                AccountFragment accountFragment = new AccountFragment();
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container_profile_data, accountFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
 
-
-        /**
-         * for preferences fragment
-         */
+        //for preferences fragment
         linLay_preferences.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

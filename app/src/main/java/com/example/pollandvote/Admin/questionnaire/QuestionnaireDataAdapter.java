@@ -1,5 +1,6 @@
-package com.example.pollandvote.questionnaire;
+package com.example.pollandvote.Admin.questionnaire;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class QuestionnaireDataAdapter extends RecyclerView.Adapter<Questionnaire
         return new PollViewHolder(itemView);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull PollViewHolder holder, int position) {
         QuestionnaireData pollData = pollDataList.get(position);

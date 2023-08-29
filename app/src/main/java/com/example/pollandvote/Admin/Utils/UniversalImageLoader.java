@@ -1,4 +1,4 @@
-package com.example.pollandvote.Utils;
+package com.example.pollandvote.Admin.Utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;

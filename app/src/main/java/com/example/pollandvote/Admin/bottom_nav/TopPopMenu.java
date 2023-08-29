@@ -5,10 +5,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import com.example.pollandvote.R;
-import com.example.pollandvote.dialogs.ConfirmLogoutDialog;
+import com.example.pollandvote.Admin.dialogs.ConfirmLogoutDialog;
 
 public class TopPopMenu {
 

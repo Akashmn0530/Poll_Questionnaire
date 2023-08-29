@@ -6,7 +6,7 @@
     android:background="@drawable/white_wall_background"
     android:layout_height="match_parent"
     android:id="@+id/admin_profile_layout"
-    tools:context=".Admin.AdminProfile">
+    tools:context=".Admin.Profiles.AdminProfile">
 
 <!--******************* Top bar ********************    -->
 

@@ -1,4 +1,4 @@
-package com.example.pollandvote;
+package com.example.pollandvote.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.pollandvote.R;
 
 public class SplashActivity extends AppCompatActivity {
 

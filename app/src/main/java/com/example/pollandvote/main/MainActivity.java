@@ -1,4 +1,4 @@
-package com.example.pollandvote;
+package com.example.pollandvote.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import com.example.pollandvote.Admin.AdminLogin;
+import com.example.pollandvote.R;
 import com.example.pollandvote.chatbot.ChatBotActivity;
 
 public class MainActivity extends AppCompatActivity {
