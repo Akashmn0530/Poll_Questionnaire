@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.pollandvote.Admin.questionnaire.QuestionnaireData;
-import com.example.pollandvote.Admin.questionnaire.QuestionnaireDataAdapter;
 import com.example.pollandvote.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,7 +45,7 @@ public class AdminHomeViewFragment extends Fragment {
                     QuestionnaireData pollData = pollSnapshot.getValue(QuestionnaireData.class);
                     pollDataList.add(pollData);
                 }
-                QuestionnaireDataAdapter adapter = new QuestionnaireDataAdapter(pollDataList);
+                AdminQuestionDataAdapter adapter = new AdminQuestionDataAdapter(pollDataList);
                 recyclerView.setAdapter(adapter);
             }
             @Override
