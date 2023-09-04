@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login"
-    tools:context=".Admin.registation.AdminLogin">
-<!--    TO Apps background-->
-<!--    android:background="@android:color/transparent"-->
+    tools:context=".Voter.register_login.LoginUser">
+    <!--    TO Apps background-->
+    <!--    android:background="@android:color/transparent"-->
     <!-- Nested Transparent Background -->
     <LinearLayout
         android:id="@+id/nestedLayout"
@@ -32,7 +32,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/admin"
+            android:src="@drawable/voter"
             app:civ_border_width="2dp"
             app:civ_border_color="#FF000000"
             tools:ignore="RedundantNamespace" />
@@ -107,7 +107,7 @@
             android:visibility="gone"
             android:onClick="onTabClick" />
 
-            <!-- Register text Button -->
+        <!-- Register text Button -->
         <TextView
             android:id="@+id/signUpTab"
             android:layout_width="wrap_content"

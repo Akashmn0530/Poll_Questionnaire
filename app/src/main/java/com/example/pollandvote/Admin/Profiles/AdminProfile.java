@@ -58,7 +58,7 @@ public class AdminProfile extends AppCompatActivity {
 //        Bottom Navigation
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_profile);
         BottomNavigation.bottomNavProvider(bottomNavigationView,getApplicationContext());
 
 

@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
-import com.example.pollandvote.Admin.AdminLogin;
+import com.example.pollandvote.Admin.registation.AdminLogin;
 import com.example.pollandvote.R;
 import com.example.pollandvote.chatbot.ChatBotActivity;
 

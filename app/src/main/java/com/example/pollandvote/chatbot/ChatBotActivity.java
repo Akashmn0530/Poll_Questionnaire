@@ -15,7 +15,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.pollandvote.Admin.bottom_nav.BottomNavigation;
 import com.example.pollandvote.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONException;
 
@@ -27,6 +29,7 @@ public class ChatBotActivity extends AppCompatActivity  {
     private RecyclerView chatsRV;
     private EditText userMsgEdt;
     private final String BOT_KEY = "bot";
+    BottomNavigationView bottomNavigationView;
 
     // creating a variable for array list and adapter class.
     private ArrayList<Message> messageModalArrayList;
@@ -47,6 +50,10 @@ public class ChatBotActivity extends AppCompatActivity  {
         // creating a new array list
         messageModalArrayList = new ArrayList<>();
 
+        // Bottom layout
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        BottomNavigation.bottomNavProvider(bottomNavigationView,getApplicationContext());
 
         // adding on click listener for send message button.
         sendMsgIB.setOnClickListener(v -> {

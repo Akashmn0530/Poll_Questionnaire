@@ -1,4 +1,5 @@
-package com.example.pollandvote.Admin;
+package com.example.pollandvote.Voter.register_login;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +26,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class AdminLogin extends AppCompatActivity {
+public class LoginUser extends AppCompatActivity {
     Button login_btn;
     TextView forgotPasswordTab, registerTab;
     EditText username_edit, password_edit;
@@ -36,7 +37,7 @@ public class AdminLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_login);
+        setContentView(R.layout.activity_login_user);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -71,7 +72,7 @@ public class AdminLogin extends AppCompatActivity {
                     sendPasswordResetEmail(email);
                 } else {
                     // Handle case when email field is empty
-                    Toast.makeText(AdminLogin.this, "Please enter your email address.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginUser.this, "Please enter your email address.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -83,9 +84,9 @@ public class AdminLogin extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(AdminLogin.this, "Password reset email sent. Check your email inbox.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginUser.this, "Password reset email sent. Check your email inbox.", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(AdminLogin.this, "Failed to send password reset email. Please check the email address.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginUser.this, "Failed to send password reset email. Please check the email address.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -158,7 +159,6 @@ public class AdminLogin extends AppCompatActivity {
                             }
                         }
                     });
-        } else {
-        }
+        } else { }
     }
 }

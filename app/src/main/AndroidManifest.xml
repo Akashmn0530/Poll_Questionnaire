@@ -19,6 +19,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Voter.register_login.LoginUser"
+            android:exported="false" />
+        <activity
+            android:name=".Voter.register_login.RegisterUser"
+            android:exported="false" />
+        <activity
             android:name=".Admin.questionnaire.QuestionnaireListActivity"
             android:exported="false" />
         <activity
@@ -34,7 +40,7 @@
             android:name=".Admin.Profiles.AdminProfile"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdminLogin"
+            android:name=".Admin.registation.AdminLogin"
             android:exported="false" />
         <activity
             android:name=".Admin.Notification.NotificationActivity"
@@ -47,9 +53,6 @@
             android:exported="false" />
         <activity
             android:name=".Admin.questionnaire.AdminQuestions"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.AdminPoll"
             android:exported="false" />
         <activity
             android:name=".main.SplashActivity"

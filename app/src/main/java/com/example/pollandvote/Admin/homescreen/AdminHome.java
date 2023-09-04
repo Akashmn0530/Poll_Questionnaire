@@ -1,23 +1,32 @@
 package com.example.pollandvote.Admin.homescreen;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.pollandvote.Admin.bottom_nav.BottomNavigation;
 import com.example.pollandvote.Admin.bottom_nav.TopPopMenu;
 import com.example.pollandvote.R;
 import com.example.pollandvote.Admin.Utils.UniversalImageLoader;
+import com.example.pollandvote.chatbot.ChatBotActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 
 public class AdminHome extends AppCompatActivity{
     BottomNavigationView bottomNavigationView;
-    ImageView topbarImage, sidePollImage, sideQuestionsImage, sideChatBotImage;
+    ImageView topbarImage;// sidePollImage, sideQuestionsImage, sideChatBotImage;
+    LinearLayout sidePollImage, sideQuestionsImage, sideChatBotImage;
+    TextView titleFrament;
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,21 +41,31 @@ public class AdminHome extends AppCompatActivity{
         topbarImage  = findViewById(R.id.saveChanges);
         UniversalImageLoader.setImage("", topbarImage, null, "");
 
-//        /**
-//         * setup top bar image
-//         */
-//        topbarImage  = findViewById(R.id.saveChanges);
-//        UniversalImageLoader.setImage("", topbarImage, null, "");
         //side button handling...
-        sidePollImage = findViewById(R.id.side_poll_image);
-        sideQuestionsImage = findViewById(R.id.side_questionIdHome);
-        sideChatBotImage = findViewById(R.id.side_questionIdHome);
-        sideQuestionsImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AdminHomeViewFragment adminHomeViewFragment = new AdminHomeViewFragment();
-                loadFragment(adminHomeViewFragment);
-            }
+        titleFrament = findViewById(R.id.fragmentTitleTextView);
+        sidePollImage = findViewById(R.id.linearPoll);
+        sideQuestionsImage = findViewById(R.id.linearQuestion);
+        sideChatBotImage = findViewById(R.id.linearChat);
+
+        sideChatBotImage.setOnClickListener(v -> {
+            sideChatBotImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.focus));
+            sideQuestionsImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
+            sidePollImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
+            Intent intent = new Intent(getApplicationContext(), ChatBotActivity.class);
+            startActivity(intent);
+        });
+        sideQuestionsImage.setOnClickListener(v -> {
+            sideQuestionsImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.focus));
+            sideChatBotImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
+            sidePollImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
+            titleFrament.setText("Questions list");
+            AdminHomeViewFragment adminHomeViewFragment = new AdminHomeViewFragment();
+            loadFragment(adminHomeViewFragment);
+        });
+        sidePollImage.setOnClickListener(v -> {
+            sidePollImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.focus));
+            sideQuestionsImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
+            sideChatBotImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
         });
         topbarImage.setOnClickListener(new View.OnClickListener() {
             @Override
