@@ -3,6 +3,7 @@ package com.example.pollandvote.Voter.register_login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import com.example.pollandvote.Admin.homescreen.AdminHome;
 import com.example.pollandvote.Admin.registation.AdminRegistation;
 import com.example.pollandvote.R;
+import com.example.pollandvote.Voter.VoterHome;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -28,7 +30,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginUser extends AppCompatActivity {
     Button login_btn;
-    TextView forgotPasswordTab, registerTab;
+    TextView forgotPasswordTab, registerTab, signUpOptions;
     EditText username_edit, password_edit;
     ProgressBar progressBar;
     FirebaseAuth mAuth;
@@ -41,6 +43,7 @@ public class LoginUser extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        signUpOptions = findViewById(R.id.signUpOptions);
         username_edit = findViewById(R.id.admin_username);
         password_edit = findViewById(R.id.admin_password);
 
@@ -56,7 +59,7 @@ public class LoginUser extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AdminHome.class);
+                Intent intent = new Intent(getApplicationContext(), VoterHome.class);
                 startActivity(intent);
             }
         });
@@ -160,5 +163,18 @@ public class LoginUser extends AppCompatActivity {
                         }
                     });
         } else { }
+    }
+
+    public void onSignUpOptionsClick(View view) {
+        signUpOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginOptionsFragments loginOptionsFragments = new LoginOptionsFragments();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.optionsViewFragment, loginOptionsFragments);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
     }
 }

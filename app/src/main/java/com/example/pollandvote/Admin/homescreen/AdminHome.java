@@ -20,10 +20,9 @@ import com.example.pollandvote.chatbot.ChatBotActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-
 public class AdminHome extends AppCompatActivity{
     BottomNavigationView bottomNavigationView;
-    ImageView topbarImage;// sidePollImage, sideQuestionsImage, sideChatBotImage;
+    ImageView topBarImage;// sidePollImage, sideQuestionsImage, sideChatBotImage;
     LinearLayout sidePollImage, sideQuestionsImage, sideChatBotImage;
     TextView titleFrament;
     @SuppressLint("CutPasteId")
@@ -38,8 +37,8 @@ public class AdminHome extends AppCompatActivity{
         bottomNavigationView.setSelectedItemId(R.id.navigation_home);
         BottomNavigation.bottomNavProvider(bottomNavigationView,getApplicationContext());
 
-        topbarImage  = findViewById(R.id.saveChanges);
-        UniversalImageLoader.setImage("", topbarImage, null, "");
+        topBarImage  = findViewById(R.id.saveChanges);
+        UniversalImageLoader.setImage("", topBarImage, null, "");
 
         //side button handling...
         titleFrament = findViewById(R.id.fragmentTitleTextView);
@@ -67,7 +66,7 @@ public class AdminHome extends AppCompatActivity{
             sideQuestionsImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
             sideChatBotImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
         });
-        topbarImage.setOnClickListener(new View.OnClickListener() {
+        topBarImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

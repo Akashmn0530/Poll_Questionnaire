@@ -9,7 +9,7 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="login">Login</string>
     <string name="forgot_password">Forgot Password</string>
-    <string name="sign_up">Sign up</string>
+    <string name="sign_up">Sign Up</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
 
@@ -29,4 +29,7 @@
     <string name="dark_mode_light_mode">Dark mode / Light mode</string>
     <string name="notifications_enabled">Notifications enabled</string>
     <string name="default_btn">Default</string>
+    <string name="signup_options">SignUp Options  </string>
+    <string name="skip_signup">Skip Signup</string>
+    <string name="signup_google">Signup Google</string>
 </resources>

@@ -4,6 +4,7 @@ public class Notification {
     public String title;
     public String message;
     public String timestamp;
+    public String id;
 
     public Notification(String title, String message, String timestamp) {
         this.title = title;

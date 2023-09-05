@@ -1,15 +1,15 @@
 package com.example.pollandvote.main;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.example.pollandvote.Admin.registation.AdminLogin;
 import com.example.pollandvote.R;
-import com.example.pollandvote.chatbot.ChatBotActivity;
+import com.example.pollandvote.Voter.register_login.LoginUser;
 
 public class MainActivity extends AppCompatActivity {
     LinearLayout linearLayout_voter, linearLayout_admin;
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         linearLayout_voter.setOnClickListener(v -> {
             linearLayout_voter.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.focus));
             linearLayout_admin.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
-            Intent intent = new Intent(getApplicationContext(), ChatBotActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LoginUser.class);
             startActivity(intent);
         });
         linearLayout_admin.setOnClickListener(v -> {

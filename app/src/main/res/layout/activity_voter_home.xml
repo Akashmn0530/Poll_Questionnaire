@@ -23,7 +23,7 @@
             android:id="@+id/relativeLayout2"
             android:layout_below="@+id/relativeLayout1">
 
-            <include layout="@layout/home_main_admin"/>
+            <include layout="@layout/home_main_user"/>
 
         </RelativeLayout>
         <!--        bottom navigation  -->

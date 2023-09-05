@@ -1,7 +1,6 @@
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_width="match_parent"
         android:background="@drawable/white_gray_border_bottom">
 
@@ -21,8 +20,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_centerVertical="true"
                     android:id="@+id/backArrow"
-                    android:src="@drawable/ic_backarrow"
-                    />
+                    android:src="@drawable/ic_backarrow" />
 
                 <TextView
                     android:layout_toRightOf="@+id/backArrow"
@@ -36,6 +34,12 @@
                     android:textColor="@color/black"
                     android:layout_marginStart="5dp"/>
 
+                <com.google.android.material.search.SearchBar
+                    android:id="@+id/topSearchBar"
+                    android:layout_width="130dp"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/profileName"/>
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -44,14 +48,11 @@
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:id="@+id/saveChanges"
-                    android:src="@drawable/admin"
-                    />
+                    android:src="@drawable/admin"/>
 
             </RelativeLayout>
-
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-
 </merge>
 
 
