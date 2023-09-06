@@ -30,7 +30,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginUser extends AppCompatActivity {
     Button login_btn;
-    TextView forgotPasswordTab, registerTab, signUpOptions;
+    TextView forgotPasswordTab,signUpOptions;
     EditText username_edit, password_edit;
     ProgressBar progressBar;
     FirebaseAuth mAuth;
@@ -51,18 +51,16 @@ public class LoginUser extends AppCompatActivity {
         progressBar.setVisibility(View.GONE);
 
         forgotPasswordTab = findViewById(R.id.forgotPasswordTab);
-        registerTab = findViewById(R.id.signUpTab);
-        register(registerTab);
 
         login_btn = findViewById(R.id.submitButton);
-        //loginValidate(login_btn);
-        login_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), VoterHome.class);
-                startActivity(intent);
-            }
-        });
+        loginValidate(login_btn);
+//        login_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), VoterHome.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     public void onTabClick(View view) {
@@ -112,16 +110,6 @@ public class LoginUser extends AppCompatActivity {
             }
         });
     }
-    public void register(TextView signup){
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AdminRegistation.class);
-                startActivity(intent);
-            }
-        });
-    }
-
     public void onPasswordToggleClick(View view) {
         TextInputEditText passwordEditText = findViewById(R.id.admin_password);
         int inputType = passwordEditText.getInputType();
@@ -176,5 +164,9 @@ public class LoginUser extends AppCompatActivity {
                 transaction.commit();
             }
         });
+    }
+
+    public void onSignUpSkipClick(View view) {
+        startActivity(new Intent(getApplicationContext(), VoterHome.class));
     }
 }

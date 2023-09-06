@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/login_background"
     tools:context=".Voter.register_login.LoginOptionsFragments">
@@ -17,51 +18,48 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="vertical"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="5dp"
-        android:gravity="center"
-        android:background="@color/gray"
-        android:id="@+id/gmailSignUp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/signup_google" />
-    </LinearLayout>
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/googleSignInButton"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/google_sign_in"
+            android:text="@string/sign_in_with_google"
+            app:colorScheme="auto"/>
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="48dp"-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_margin="30dp"-->
-<!--        android:gravity="center"-->
-<!--        android:id="@+id/gmailSignUp">-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Signup Google" />-->
-<!--    </LinearLayout>-->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="vertical"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="25dp"
-        android:gravity="center"
-        android:background="@color/gray"
-        android:id="@+id/skipSignUp">
-        <TextView
-            android:layout_width="wrap_content"
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/facebookLoginButton"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/facebook_login" />
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/skip_signup" />
-    </LinearLayout>
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/signUpTab"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/sign_up"/>
+            <TextView
+                android:id="@+id/skipSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onSignUpSkipClick"
+                android:padding="10dp"
+                android:text="@string/skip_signup"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:drawableEndCompat="@drawable/baseline_arrow_forward_24" />
+
+
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

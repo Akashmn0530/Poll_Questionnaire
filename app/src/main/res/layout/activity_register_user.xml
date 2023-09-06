@@ -5,5 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Voter.register_login.RegisterUser">
+    <RelativeLayout
 
+        android:id="@+id/relativeLayout2"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <include layout="@layout/registration_top_design_voter"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="240dp">
+
+        <include layout="@layout/registration_menu"/>
+
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

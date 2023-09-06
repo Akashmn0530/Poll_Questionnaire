@@ -32,4 +32,8 @@
     <string name="signup_options">SignUp Options  </string>
     <string name="skip_signup">Skip Signup</string>
     <string name="signup_google">Signup Google</string>
+    <string name="google_sign_in">Google SignIn</string>
+    <string name="sign_in_with_google">SignIn with Google</string>
+    <string name="facebook_login">"Continue with Facebook"</string>
+    <string name="search_here">.    Search here…</string>
 </resources>
