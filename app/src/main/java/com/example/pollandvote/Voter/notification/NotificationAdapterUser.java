@@ -1,4 +1,5 @@
-package com.example.pollandvote.Admin.Notification.Adapters;
+package com.example.pollandvote.Voter.notification;
+
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -17,26 +18,26 @@ import com.example.pollandvote.Voter.notification.UserNotificationActivity;
 
 import java.util.List;
 
-public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder> {
+public class NotificationAdapterUser extends RecyclerView.Adapter<NotificationAdapterUser.NotificationViewHolder> {
     private static List<Notification> notificationList;
     @SuppressLint("StaticFieldLeak")
     static Context context;
 
-    public NotificationAdapter(List<Notification> notificationList, Context context) {
-        NotificationAdapter.notificationList = notificationList;
-        NotificationAdapter.context = context;
+    public NotificationAdapterUser(List<Notification> notificationList, Context context) {
+        this.notificationList = notificationList;
+        this.context = context;
     }
 
 
     @NonNull
     @Override
-    public NotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NotificationAdapterUser.NotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_notification, parent, false);
-        return new NotificationViewHolder(itemView);
+        return new NotificationAdapterUser.NotificationViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NotificationViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotificationAdapterUser.NotificationViewHolder holder, int position) {
         Notification notification = notificationList.get(position);
         holder.titleTextView.setText(notification.title);
         holder.messageTextView.setText(notification.message);
@@ -61,11 +62,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 // Get the clicked contest data
                 Notification notification = notificationList.get(getAdapterPosition());
                 // Cast the context to AdminHomeActivity and call the showDeletePopup method
-                NotificationActivity notificationActivity = (NotificationActivity) context;
+                UserNotificationActivity notificationActivity = (UserNotificationActivity) context;
                 notificationActivity.showDeletePopup(notification);
 
             });
         }
     }
 }
+
 

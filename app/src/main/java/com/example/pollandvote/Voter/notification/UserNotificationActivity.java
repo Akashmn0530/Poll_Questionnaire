@@ -2,6 +2,7 @@ package com.example.pollandvote.Voter.notification;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,15 +10,19 @@ import android.annotation.SuppressLint;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.pollandvote.Admin.FirestoreUtils.ReadData;
-import com.example.pollandvote.Admin.Notification.Adapters.NotificationAdapter;
 import com.example.pollandvote.Admin.Notification.Notification;
 import com.example.pollandvote.Admin.Notification.NotificationActivity;
 import com.example.pollandvote.Admin.Notification.NotificationData;
@@ -32,13 +37,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserNotificationActivity extends AppCompatActivity {
-    private NotificationAdapter adapter;
+    private NotificationAdapterUser adapter;
     private List<Notification> notificationList;
     BottomNavigationView bottomNavigationView;
     ProgressBar progressBar;
     ImageView topbarImage;
+    List<String> titleNotification;
+    ArrayAdapter<String> adapterSearch;
     private SearchView searchView;
-
+    //ListView listView;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,21 +53,8 @@ public class UserNotificationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_notification);
         progressBar = findViewById(R.id.idProgressBar1);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                // Handle search query submission
-                performSearch(query);
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return true;
-            }
-        });
-
+        //listView = findViewById(R.id.listView);
+        titleNotification = new ArrayList<>();
         topbarImage  = findViewById(R.id.saveChanges);
         UniversalImageLoader.setImage("", topbarImage, null, "");
 
@@ -80,7 +74,7 @@ public class UserNotificationActivity extends AppCompatActivity {
         clearNotifications();
 
         notificationList = new ArrayList<>();
-        adapter = new NotificationAdapter(notificationList,this);
+        adapter = new NotificationAdapterUser(notificationList,this);
         recyclerView.setAdapter(adapter);
 
         ReadData readData = new ReadData();
@@ -89,6 +83,11 @@ public class UserNotificationActivity extends AppCompatActivity {
             notificationList.addAll(data);
             adapter.notifyDataSetChanged();
             progressBar.setVisibility(View.GONE);
+            for(int i = 0; i<notificationList.size(); i++) {
+                titleNotification.add(notificationList.get(i).title);
+                adapterSearch = new ArrayAdapter(this, android.R.layout.simple_list_item_1, titleNotification);
+                // listView.setAdapter(adapterSearch);
+            }
         });
 
         topbarImage.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +96,27 @@ public class UserNotificationActivity extends AppCompatActivity {
 
                 // Log.d(TAG, "onClick: image clicked");
                 TopPopMenu.showPopMenu(v, UserNotificationActivity.this);
+            }
+        });
+        SearchView searchView = (SearchView) findViewById(R.id.signUpOptions);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                for(int i = 0; i< notificationList.size(); i++) {
+                    Notification notification = notificationList.get(i);
+                    if (notification.title.equalsIgnoreCase(query)) {
+                        adapterSearch.getFilter().filter(query);
+                        Toast.makeText(UserNotificationActivity.this, "Found"+query, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(UserNotificationActivity.this, "Not found", Toast.LENGTH_LONG).show();
+                    }
+                }
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapterSearch.getFilter().filter(newText);
+                return false;
             }
         });
 
@@ -114,7 +134,6 @@ public class UserNotificationActivity extends AppCompatActivity {
             // Delete the document in notifications in firebase and update the fields
         });
         builder.setNegativeButton("Cancel", null);
-
         AlertDialog dialog = builder.create();
         dialog.show();
     }
@@ -122,10 +141,5 @@ public class UserNotificationActivity extends AppCompatActivity {
     private void clearNotifications() {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancelAll();
-
     }
-    private void performSearch(String query) {
-
-    }
-
 }
