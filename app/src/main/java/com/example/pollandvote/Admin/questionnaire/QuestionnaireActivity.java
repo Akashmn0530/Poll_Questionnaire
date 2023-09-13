@@ -2,6 +2,7 @@ package com.example.pollandvote.Admin.questionnaire;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -10,7 +11,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pollandvote.Admin.Notification.NotificationActivity;
+import com.example.pollandvote.Admin.Utils.UniversalImageLoader;
+import com.example.pollandvote.Admin.bottom_nav.BottomNavigation;
+import com.example.pollandvote.Admin.bottom_nav.TopPopMenu;
 import com.example.pollandvote.R;
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -22,13 +29,22 @@ public class QuestionnaireActivity extends AppCompatActivity {
     private LinearLayout pollOptionsContainer;
     private int pollOptionCount = 0;
     private Map<String, String> options = new HashMap<>();
-
+    BottomNavigationView bottomNavigationView;
+    ImageView topbarImage;
     private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        topbarImage  = findViewById(R.id.saveChanges);
+        UniversalImageLoader.setImage("", topbarImage, null, "");
+
+        //Bottom Nav
+        bottomNavigationView.setSelectedItemId(R.id.navigation_dashboard);
+        BottomNavigation.bottomNavProvider(bottomNavigationView,getApplicationContext());
 
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         reference = db.getReference("PollData");
@@ -86,6 +102,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     .addOnSuccessListener(aVoid -> Toast.makeText(QuestionnaireActivity.this, "Data added to Realtime Database", Toast.LENGTH_SHORT).show())
                     .addOnFailureListener(e -> Toast.makeText(QuestionnaireActivity.this, "Error adding data to Realtime Database", Toast.LENGTH_SHORT).show());
         });
+        topbarImage.setOnClickListener(v -> TopPopMenu.showPopMenu(v, QuestionnaireActivity.this));
     }
 
     private void addPollOption() {

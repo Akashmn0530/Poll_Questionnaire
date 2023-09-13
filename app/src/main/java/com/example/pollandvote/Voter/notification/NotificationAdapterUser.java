@@ -6,39 +6,40 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pollandvote.Admin.Notification.Notification;
-import com.example.pollandvote.Admin.Notification.NotificationActivity;
 import com.example.pollandvote.R;
-import com.example.pollandvote.Voter.notification.UserNotificationActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationAdapterUser extends RecyclerView.Adapter<NotificationAdapterUser.NotificationViewHolder> {
-    private static List<Notification> notificationList;
-    @SuppressLint("StaticFieldLeak")
-    static Context context;
+public class NotificationAdapterUser extends RecyclerView.Adapter<NotificationAdapterUser.NotificationViewHolder> implements Filterable {
+    private final List<Notification> notificationList;
+    private final List<Notification> filteredList;
+    private final Context context;
 
     public NotificationAdapterUser(List<Notification> notificationList, Context context) {
         this.notificationList = notificationList;
+        this.filteredList = new ArrayList<>(notificationList); // Initialize filteredList with all items
         this.context = context;
     }
 
-
     @NonNull
     @Override
-    public NotificationAdapterUser.NotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_notification, parent, false);
-        return new NotificationAdapterUser.NotificationViewHolder(itemView);
+        return new NotificationViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NotificationAdapterUser.NotificationViewHolder holder, int position) {
-        Notification notification = notificationList.get(position);
+    public void onBindViewHolder(@NonNull NotificationViewHolder holder, int position) {
+        Notification notification = filteredList.get(position);
         holder.titleTextView.setText(notification.title);
         holder.messageTextView.setText(notification.message);
         holder.timestampTextView.setText(notification.timestamp);
@@ -46,10 +47,42 @@ public class NotificationAdapterUser extends RecyclerView.Adapter<NotificationAd
 
     @Override
     public int getItemCount() {
-        return notificationList.size();
+        return filteredList.size();
     }
 
-    public static class NotificationViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String query = constraint.toString().toLowerCase();
+                List<Notification> filteredResults = new ArrayList<>();
+                if (query.isEmpty()) {
+                    filteredResults.addAll(notificationList); // Show all items when query is empty
+                } else {
+                    for (Notification notification : notificationList) {
+                        if (notification.title.toLowerCase().contains(query)) {
+                            filteredResults.add(notification);
+                        }
+                    }
+                }
+
+                FilterResults results = new FilterResults();
+                results.values = filteredResults;
+                return results;
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                filteredList.clear();
+                filteredList.addAll((List<Notification>) results.values);
+                notifyDataSetChanged();
+            }
+        };
+    }
+
+    public class NotificationViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView, messageTextView, timestampTextView;
 
         public NotificationViewHolder(@NonNull View itemView) {
@@ -57,17 +90,14 @@ public class NotificationAdapterUser extends RecyclerView.Adapter<NotificationAd
             titleTextView = itemView.findViewById(R.id.titleTextView);
             messageTextView = itemView.findViewById(R.id.messageTextView);
             timestampTextView = itemView.findViewById(R.id.timestampTextView);
-            // Set an OnClickListener to handle item clicks in the RecyclerView
+
             itemView.setOnClickListener(view -> {
-                // Get the clicked contest data
-                Notification notification = notificationList.get(getAdapterPosition());
-                // Cast the context to AdminHomeActivity and call the showDeletePopup method
+                // Get the clicked notification data
+                Notification notification = filteredList.get(getAdapterPosition());
+                // Cast the context to UserNotificationActivity and call the showDeletePopup method
                 UserNotificationActivity notificationActivity = (UserNotificationActivity) context;
                 notificationActivity.showDeletePopup(notification);
-
             });
         }
     }
 }
-
-

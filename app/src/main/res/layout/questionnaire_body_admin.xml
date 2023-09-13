@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_marginBottom="50dp"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Questioner"
+        android:layout_marginLeft="80dp"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Add  Questions"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="25dp"
+            android:textSize="20dp"
+            android:padding="10dp"
+            />
+        <EditText
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:id="@+id/questionid"
+            android:hint="Enter Question ID"
+            android:textSize="20dp"
+            android:background="@drawable/square"
+            android:layout_marginStart="15sp"
+            />
+        <EditText
+            android:id="@+id/edittxtaddpoll"
+            android:layout_marginTop="15dp"
+            android:layout_width="350dp"
+            android:padding="5dp"
+            android:hint="Add Question"
+            android:layout_marginStart="15dp"
+            android:layout_height="100dp"
+            android:background="@drawable/square"
+            android:inputType="textMultiLine"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Add Options"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            />
+        <LinearLayout
+            android:id="@+id/pollOptionsContainer"
+            android:layout_gravity="center"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            >
+
+            <ImageView
+                android:id="@+id/vectorremove"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/square"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/baseline_remove" />
+
+            <ImageView
+                android:id="@+id/vectorAsset"
+                android:layout_gravity="right"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:padding="5dp"
+                android:src="@drawable/baseline_addpoll" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="Enter the correct answer: "
+            android:textSize="20dp"
+            android:layout_marginStart="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="550dp"/>
+        <EditText
+            android:id="@+id/editTextCorrectAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Answer"
+            android:textSize="20dp"
+            android:background="@drawable/square"
+
+            android:layout_marginTop="550dp"
+            android:layout_marginStart="240dp"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/viewdata"
+            android:layout_width="80dp"
+            android:layout_height="55dp"
+            android:padding="5dp"
+            android:gravity="center"
+            android:text="View Data"
+            android:layout_marginStart="125dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="600dp"/>
+
+
+        <ImageView
+            android:id="@+id/nextarrow"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="600dp"
+            android:src="@drawable/baseline_arrowforward" />
+    </RelativeLayout>
+</RelativeLayout>

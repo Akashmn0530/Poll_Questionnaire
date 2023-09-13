@@ -14,9 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pollandvote.Admin.registation.AdminLogin;
-import com.example.pollandvote.Admin.registation.AdminRegistation;
-import com.example.pollandvote.Admin.registation.RegistrationModule;
 import com.example.pollandvote.R;
+import com.example.pollandvote.Voter.user_model.UserRegistrationModule;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class RegisterUser extends AppCompatActivity {
@@ -153,7 +153,7 @@ public class RegisterUser extends AppCompatActivity {
         }
     }
     public void addToFireStore(String email, String password, String fullName){
-        RegistrationModule registrationModule = new RegistrationModule();
+        UserRegistrationModule registrationModule = new UserRegistrationModule();
         registrationModule.setFullName(fullName);
         registrationModule.setPassword(password);
         registrationModule.setEmail(email);
@@ -187,7 +187,7 @@ public class RegisterUser extends AppCompatActivity {
             passwordEditText.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
             passwordEditText.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_backarrow, 0);
         }
-        passwordEditText.setSelection(passwordEditText.getText().length()); // Maintain cursor position
+        passwordEditText.setSelection(Objects.requireNonNull(passwordEditText.getText()).length()); // Maintain cursor position
 
     }
 }

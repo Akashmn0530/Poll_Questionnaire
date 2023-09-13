@@ -75,6 +75,7 @@ import android.graphics.Color;
 import android.media.AudioAttributes;
 import android.net.Uri;
 import android.provider.Settings;
+import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 import com.example.pollandvote.Admin.Notification.NotificationActivity;
@@ -93,13 +94,13 @@ public class SendNotifications {
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle("Test")
+                .setContentTitle("Akash")
                 .setSound(sound)
                 .setContentText("Hello! This is my first push notification")
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
-        NotificationData.storeNotification("Test", "Hello! This is my first push notification");
+        NotificationData.storeNotification("Akash", "Hello! This is my first push notification");
 
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         AudioAttributes audioAttributes = new AudioAttributes.Builder()

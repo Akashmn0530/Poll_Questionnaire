@@ -1,19 +1,18 @@
-package com.example.pollandvote.Admin.bottom_nav;
+package com.example.pollandvote.Voter.bottom_nav;
 
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.pollandvote.Admin.homescreen.AdminHome;
-import com.example.pollandvote.Admin.Profiles.AdminProfile;
-import com.example.pollandvote.Admin.Notification.NotificationActivity;
 import com.example.pollandvote.Admin.Notification.toSend.SendNotifications;
-import com.example.pollandvote.R;
+import com.example.pollandvote.Admin.Profiles.AdminProfile;
+import com.example.pollandvote.Admin.homescreen.AdminHome;
 import com.example.pollandvote.Admin.questionnaire.QuestionnaireActivity;
+import com.example.pollandvote.R;
 import com.example.pollandvote.Voter.notification.UserNotificationActivity;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class BottomNavigation {
+public class UserBottomNavigation {
     private static boolean isHandlingNavigation = false;
     static BadgeDrawable badgeDrawable;
     public static void bottomNavProvider(BottomNavigationView bottomNavigationView, Context context) {
@@ -43,7 +42,7 @@ public class BottomNavigation {
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                     } else if (idd == R.id.navigation_notifications) {
-                        Intent intent = new Intent(context, NotificationActivity.class);
+                        Intent intent = new Intent(context, UserNotificationActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                         // Notification logic

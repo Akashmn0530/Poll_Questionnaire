@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -24,6 +23,8 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import java.util.Objects;
 
 public class LoginOptionsFragments extends Fragment {
     private static final int RC_SIGN_IN = 123;
@@ -47,7 +48,7 @@ public class LoginOptionsFragments extends Fragment {
         View view = inflater.inflate(R.layout.fragment_login_options_fragments, container, false);
 
         view.findViewById(R.id.googleSignInButton).setOnClickListener(v -> signInWithGoogle());
-        view.findViewById(R.id.overlay).setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
+        view.findViewById(R.id.overlay).setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
         view.findViewById(R.id.signUpTab).setOnClickListener(v -> startActivity(new Intent(getContext(),RegisterUser.class)));
 
         return view;
@@ -89,7 +90,7 @@ public class LoginOptionsFragments extends Fragment {
                             }
                         } else {
                             // If sign-in fails, display a message to the user.
-                            Toast.makeText(getContext(), "Google Sign-In failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Google Sign-In failed: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

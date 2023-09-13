@@ -81,7 +81,6 @@
                 android:onClick="onPasswordToggleClick" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <!-- Submit Button -->
         <Button
             android:id="@+id/submitButton"
@@ -120,8 +119,6 @@
             android:textSize="20sp"
             app:drawableEndCompat="@drawable/baseline_arrow_forward_24" />
 
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -134,7 +131,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nestedLayout"
         tools:layout_editor_absoluteX="20dp">
 
-        </LinearLayout>
+    </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/optionsViewFragment"
@@ -142,10 +139,8 @@
         android:layout_height="200dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nestedLayout"
-        app:layout_constraintVertical_bias="0.829" />
+        app:layout_constraintTop_toTopOf="@+id/nestedLayout"/>
 
     <ProgressBar
         android:id="@+id/idProgressBar1"
@@ -156,4 +151,5 @@
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.893" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
