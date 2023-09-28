@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/relativeLayout1">
 
-            <include layout="@layout/top_nav_spt"/>
+            <include layout="@layout/top_nav_spt_user"/>
 
 
         </RelativeLayout>

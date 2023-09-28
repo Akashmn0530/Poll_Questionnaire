@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_poll"
+        android:id="@+id/navigation_poll_user"
         android:icon="@drawable/baseline_poll"
         android:title="@string/poll"
         />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_dashboard_user"
         android:icon="@drawable/baseline_question"
         android:title="@string/questionnaire" />
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_home_user"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/home" />
     <item
@@ -20,7 +20,7 @@
         android:icon="@drawable/ic_following"
         android:title="@string/following" />
     <item
-        android:id="@+id/navigation_profile"
+        android:id="@+id/navigation_profile_user"
         android:icon="@drawable/baseline_info"
         android:title="@string/buttom_profile" />
 

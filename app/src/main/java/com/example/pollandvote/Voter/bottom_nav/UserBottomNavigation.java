@@ -27,31 +27,31 @@ public class UserBottomNavigation {
                     isHandlingNavigation = true;
 
                     int idd = item.getItemId();
-                    if (idd == R.id.navigation_home) {
+                    if (idd == R.id.navigation_home_user) {
                         // Home logic
                         Intent intent = new Intent(context, AdminHome.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                         Log.d("Akash","top 51");
-                    } else if (idd == R.id.navigation_poll) {
+                    } else if (idd == R.id.navigation_poll_user) {
                         // Poll logic
                         badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.navigation_notifications);
                         SendNotifications.showNewNotifications(badgeDrawable);
                         //Sending notifications
                         SendNotifications.sendNotificationOperations(context);
                         Log.d("Akash","top 51");
-                    } else if (idd == R.id.navigation_dashboard) {
+                    } else if (idd == R.id.navigation_dashboard_user) {
                         // Dashboard logic
                         Intent intent=new Intent(context, UserQuestionerActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         Log.d("Akash","top 51");
                         context.startActivity(intent);
                     } else if (idd == R.id.navigation_friend) {
-                        Intent intent = new Intent(context, UserNotificationActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        context.startActivity(intent);
+//                        Intent intent = new Intent(context, UserNotificationActivity.class);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                        context.startActivity(intent);
                         // Notification logic
-                    } else if (idd == R.id.navigation_profile) {
+                    } else if (idd == R.id.navigation_profile_user) {
                         // Profile logic
                         Intent intent = new Intent(context, AdminProfile.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
