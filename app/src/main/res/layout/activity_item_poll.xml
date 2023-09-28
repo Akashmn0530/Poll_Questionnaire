@@ -1,36 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="16dp">
 
+    <!-- Question TextView -->
     <TextView
         android:id="@+id/questionTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:textColor="@color/blue"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:text="Poll Question" />
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Question text"
+        android:textColor="#232A51"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
+    <!-- Selection Type TextView -->
+    <TextView
+        android:id="@+id/selectionTypeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#45277C"
+        android:textSize="18sp"
+        android:text="Selection Type: Radio" />
+
+    <!-- Options TextView -->
     <TextView
         android:id="@+id/optionsTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/green"
-        android:textSize="20dp"
-        android:text="Options will be displayed here" />
+        android:textSize="18sp"
+        android:textColor="#4D3D68"
 
+        android:text="Options text" />
+
+    <!-- Correct Answer TextView -->
     <TextView
         android:id="@+id/correctAnswerTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/green"
-        android:textSize="18dp"
-        android:text="Correct Answer: Not Available" />
+        android:textSize="18sp"
+        android:textColor="#4CAF50"
+        android:text="Correct Answers text" />
 
-    <include layout="@layout/divider_item" />
+    <include layout="@layout/divider_item"/>
 
 </LinearLayout>

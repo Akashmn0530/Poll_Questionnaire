@@ -3,6 +3,7 @@ package com.example.pollandvote.Voter;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,7 +24,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 public class VoterHome extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     LinearLayout sidePollImage, sideQuestionsImage, sideChatBotImage;
-    TextView titleFrament;
+    TextView titleFragment;
     ImageView topBarImage;
     @SuppressLint("SetTextI18n")
     @Override
@@ -40,7 +41,7 @@ public class VoterHome extends AppCompatActivity {
         UniversalImageLoader.setImage("", topBarImage, null, "");
 
         //side button handling...
-        titleFrament = findViewById(R.id.fragmentTitleTextView);
+        titleFragment = findViewById(R.id.fragmentTitleTextView);
         sidePollImage = findViewById(R.id.linearPoll);
         sideQuestionsImage = findViewById(R.id.linearQuestion);
         sideChatBotImage = findViewById(R.id.linearChat);
@@ -56,7 +57,7 @@ public class VoterHome extends AppCompatActivity {
             sideQuestionsImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.focus));
             sideChatBotImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
             sidePollImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
-            titleFrament.setText("Questions list");
+            titleFragment.setText("Questions list");
             AdminHomeViewFragment adminHomeViewFragment = new AdminHomeViewFragment();
             loadFragment(adminHomeViewFragment);
         });
@@ -66,7 +67,7 @@ public class VoterHome extends AppCompatActivity {
             sideChatBotImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
         });
         topBarImage.setOnClickListener(v -> {
-            // Log.d(TAG, "onClick: image clicked");
+            Log.d("Akash", "onClick: image clicked");
             UserTopPopMenu.showPopMenu(v, VoterHome.this);
         });
 

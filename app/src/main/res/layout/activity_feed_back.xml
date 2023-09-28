@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/phone_background"
+    tools:context=".Admin.dialogs.AdminFeedBackActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="left"
+        tools:ignore="MissingConstraints,RtlHardcoded">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="45sp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="@string/feedback"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="#131313"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:id="@+id/feedbackTxt"
+        android:text="@string/your_feedback_is_important"/>
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:saveEnabled="true"
+        android:theme="@style/RatingBar"
+        android:numStars="5"/>
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="350dp"
+        android:layout_marginLeft="35dp"
+        android:layout_height="125dp"
+        android:ems="10"
+        android:padding="10dp"
+        android:hint="Write your feedback here."
+        android:layout_marginTop="50dp"
+        android:gravity="start|top"
+        android:textSize="20dp"
+        android:background="@drawable/square"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/getRating"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="10dp"
+        android:padding="15dp"
+        android:textSize="17dp"
+        android:backgroundTint="#0E0E0E"
+        android:layout_marginTop="16dp"
+        android:text="@string/submit_and_logout"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="30dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+<!--        <TextView-->
+<!--            android:id="@+id/Cancel"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:clickable="true"-->
+<!--            android:focusable="true"-->
+<!--            android:minHeight="48dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:onClick="onTabClickCancel"-->
+<!--            android:text="@string/cancel"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="40sp" />-->
+        <TextView
+            android:id="@+id/Logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:onClick="onTabClickLogout"
+            android:text="@string/skip"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/login_Tab"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/login"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:padding="10dp"-->
+<!--            android:clickable="true"-->
+<!--            android:focusable="true"-->
+<!--            android:onClick="onTabClick" />-->
+
+    </LinearLayout>
+</LinearLayout>

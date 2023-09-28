@@ -21,6 +21,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Voter.utils.UserFeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.dialogs.AdminFeedBackActivity"
+            android:exported="false" />
+        <activity
             android:name=".Voter.notification.UserNotificationActivity"
             android:exported="false" />
         <activity
@@ -57,8 +63,8 @@
             android:name=".Admin.homescreen.AdminHome"
             android:exported="false" />
         <activity
-            android:name=".Admin.questionnaire.AdminQuestions"
-            android:exported="false" />
+            android:name=".Voter.user_questionnaire.UserQuestionerActivity"
+            android:exported="false"/>
         <activity
             android:name=".main.SplashActivity"
             android:exported="true">

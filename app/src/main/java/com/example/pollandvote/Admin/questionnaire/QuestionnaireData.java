@@ -1,13 +1,29 @@
 package com.example.pollandvote.Admin.questionnaire;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class QuestionnaireData {
     private String question;
     private Map<String, String> options = new HashMap<>();
-    private String correctAnswer;
-    public QuestionnaireData(){}
+    private List<String> correctAnswers = new ArrayList<>(); // Updated field
+
+    private String selectionType;
+
+    public QuestionnaireData() {
+        // Default constructor required for Firebase
+    }
+
+    public String getSelectionType() {
+        return selectionType;
+    }
+
+    public void setSelectionType(String selectionType) {
+        this.selectionType = selectionType;
+    }
+
     public QuestionnaireData(String question) {
         this.question = question;
     }
@@ -28,11 +44,11 @@ public class QuestionnaireData {
         this.options = options;
     }
 
-    public String getCorrectAnswer() {
-        return correctAnswer;
+    public List<String> getCorrectAnswers() {
+        return correctAnswers;
     }
 
-    public void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
+    public void setCorrectAnswers(List<String> correctAnswers) {
+        this.correctAnswers = correctAnswers;
     }
 }

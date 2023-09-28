@@ -36,4 +36,16 @@
     <string name="sign_in_with_google">SignIn with Google</string>
     <string name="facebook_login">"Continue with Facebook"</string>
     <string name="search_here">.    Search here…</string>
+    <string name="skip">Skip now</string>
+    <string name="feedback">Feedback</string>
+    <string name="your_feedback_is_important">Your feedback is important</string>
+    <string name="submit">Submit</string>
+    <string name="submit_and_logout">Submit and Logout</string>
+    <string name="dbname_questionnairedata">QuestionnaireData</string>
+    <string name="following">Following</string>
+
+    <string-array name="languages">
+        <item>radio</item>
+        <item>checkbox</item>
+    </string-array>
 </resources>

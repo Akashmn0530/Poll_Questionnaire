@@ -18,4 +18,7 @@
     <color name="link_blue">#005ce6</color>
 
 
+    <color name="lightGrey">#808080</color>
+    <color name="duskYellow">#8B8000</color>
+
 </resources>

@@ -5,7 +5,6 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
@@ -18,8 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pollandvote.Admin.FirestoreUtils.ReadData;
 import com.example.pollandvote.Admin.Notification.Notification;
 import com.example.pollandvote.Admin.Utils.UniversalImageLoader;
-import com.example.pollandvote.Admin.bottom_nav.BottomNavigation;
-import com.example.pollandvote.Admin.bottom_nav.TopPopMenu;
+import com.example.pollandvote.Voter.bottom_nav.UserBottomNavigation;
+import com.example.pollandvote.Voter.bottom_nav.UserTopPopMenu;
 import com.example.pollandvote.R;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -51,7 +50,7 @@ public class UserNotificationActivity extends AppCompatActivity {
 
         //Bottom Nav
         bottomNavigationView.setSelectedItemId(R.id.navigation_notifications);
-        BottomNavigation.bottomNavProvider(bottomNavigationView,getApplicationContext());
+        UserBottomNavigation.bottomNavProvider(bottomNavigationView,getApplicationContext());
 
         //Recycler View
         RecyclerView recyclerView = findViewById(R.id.rv_notification_list);
@@ -72,7 +71,7 @@ public class UserNotificationActivity extends AppCompatActivity {
             progressBar.setVisibility(View.GONE);
         });
 
-        topbarImage.setOnClickListener(v -> TopPopMenu.showPopMenu(v, UserNotificationActivity.this));
+        topbarImage.setOnClickListener(v -> UserTopPopMenu.showPopMenu(v, UserNotificationActivity.this));
         SearchView searchView = (SearchView) findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

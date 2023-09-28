@@ -6,6 +6,10 @@ public class UserRegistrationModule {
     private String email;
     private String password;
 
+    private float rating = 0.0f;
+    private int feedbackDialogCount = 0;
+    private String feedbackDescription;
+
     public String getFullName() {
         return fullName;
     }
@@ -36,5 +40,29 @@ public class UserRegistrationModule {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public int getFeedbackDialogCount() {
+        return feedbackDialogCount;
+    }
+
+    public void setFeedbackDialogCount(int feedbackDialogCount) {
+        this.feedbackDialogCount = feedbackDialogCount;
+    }
+
+    public String getFeedbackDescription() {
+        return feedbackDescription;
+    }
+
+    public void setFeedbackDescription(String feedbackDescription) {
+        this.feedbackDescription = feedbackDescription;
     }
 }

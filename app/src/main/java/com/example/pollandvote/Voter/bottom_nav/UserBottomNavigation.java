@@ -2,6 +2,7 @@ package com.example.pollandvote.Voter.bottom_nav;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.example.pollandvote.Admin.Notification.toSend.SendNotifications;
 import com.example.pollandvote.Admin.Profiles.AdminProfile;
@@ -9,6 +10,7 @@ import com.example.pollandvote.Admin.homescreen.AdminHome;
 import com.example.pollandvote.Admin.questionnaire.QuestionnaireActivity;
 import com.example.pollandvote.R;
 import com.example.pollandvote.Voter.notification.UserNotificationActivity;
+import com.example.pollandvote.Voter.user_questionnaire.UserQuestionerActivity;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -30,18 +32,21 @@ public class UserBottomNavigation {
                         Intent intent = new Intent(context, AdminHome.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
+                        Log.d("Akash","top 51");
                     } else if (idd == R.id.navigation_poll) {
                         // Poll logic
                         badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.navigation_notifications);
                         SendNotifications.showNewNotifications(badgeDrawable);
                         //Sending notifications
                         SendNotifications.sendNotificationOperations(context);
+                        Log.d("Akash","top 51");
                     } else if (idd == R.id.navigation_dashboard) {
                         // Dashboard logic
-                        Intent intent=new Intent(context, QuestionnaireActivity.class);
+                        Intent intent=new Intent(context, UserQuestionerActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        Log.d("Akash","top 51");
                         context.startActivity(intent);
-                    } else if (idd == R.id.navigation_notifications) {
+                    } else if (idd == R.id.navigation_friend) {
                         Intent intent = new Intent(context, UserNotificationActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);

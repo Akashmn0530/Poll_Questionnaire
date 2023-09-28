@@ -34,6 +34,7 @@ public class LoginUser extends AppCompatActivity {
     EditText username_edit, password_edit;
     ProgressBar progressBar;
     FirebaseAuth mAuth;
+    public static String userLoginID;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -64,49 +65,43 @@ public class LoginUser extends AppCompatActivity {
     }
 
     public void onTabClick(View view) {
-        forgotPasswordTab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Handle forgot password click
-                String email = username_edit.getText().toString();
-                if (!email.isEmpty()) {
-                    sendPasswordResetEmail(email);
-                } else {
-                    // Handle case when email field is empty
-                    Toast.makeText(LoginUser.this, "Please enter your email address.", Toast.LENGTH_SHORT).show();
-                }
+        forgotPasswordTab.setOnClickListener(view1 -> {
+            // Handle forgot password click
+            String email = username_edit.getText().toString();
+            if (!email.isEmpty()) {
+                sendPasswordResetEmail(email);
+            } else {
+                // Handle case when email field is empty
+                Toast.makeText(LoginUser.this, "Please enter your email address.", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void sendPasswordResetEmail(String email) {
         mAuth.sendPasswordResetEmail(email)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(LoginUser.this, "Password reset email sent. Check your email inbox.", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(LoginUser.this, "Failed to send password reset email. Please check the email address.", Toast.LENGTH_SHORT).show();
-                        }
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(LoginUser.this, "Password reset email sent. " +
+                                "Check your email inbox.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(LoginUser.this, "Failed to send password reset email. " +
+                                "Please check the email address.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
     public void loginValidate(Button login_btn){
-        login_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(username_edit.getText().toString().equals("") || password_edit.getText().toString().equals("")){
-                    forgotPasswordTab.setVisibility(View.VISIBLE);
-                    forgotPasswordTab.setTextColor(Color.RED);
-                    progressBar.setVisibility(View.GONE);
-                    username_edit.setError("Both fields are required");
-                    password_edit.setError("Both fields are required");
-                }
-                else {
-                    progressBar.setVisibility(View.VISIBLE);
-                    performLogin(username_edit.getText().toString(), password_edit.getText().toString());
-                }
+        login_btn.setOnClickListener(view -> {
+            if(username_edit.getText().toString().equals("") || password_edit.getText().toString().equals("")){
+                forgotPasswordTab.setVisibility(View.VISIBLE);
+                forgotPasswordTab.setTextColor(Color.RED);
+                progressBar.setVisibility(View.GONE);
+                username_edit.setError("Both fields are required");
+                password_edit.setError("Both fields are required");
+            }
+            else {
+                progressBar.setVisibility(View.VISIBLE);
+                userLoginID = username_edit.getText().toString();
+                performLogin(username_edit.getText().toString(), password_edit.getText().toString());
             }
         });
     }
@@ -130,39 +125,33 @@ public class LoginUser extends AppCompatActivity {
     public void performLogin(String email, String password) {
         if (!email.isEmpty() && !password.isEmpty()) {
             mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Login successful
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                // Proceed with further actions
-                                clearField();
-                                progressBar.setVisibility(View.GONE);
-                                Intent intent = new Intent(getApplicationContext(), AdminHome.class);
-                                startActivity(intent);
-                            } else {
-                                progressBar.setVisibility(View.GONE);
-                                username_edit.setError("Wrong username");
-                                password_edit.setError("Wrong password");
-                                forgotPasswordTab.setVisibility(View.VISIBLE);
-                                forgotPasswordTab.setTextColor(Color.RED);
-                            }
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            // Login successful
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            // Proceed with further actions
+                            clearField();
+                            progressBar.setVisibility(View.GONE);
+                            Intent intent = new Intent(getApplicationContext(), VoterHome.class);
+                            startActivity(intent);
+                        } else {
+                            progressBar.setVisibility(View.GONE);
+                            username_edit.setError("Wrong username");
+                            password_edit.setError("Wrong password");
+                            forgotPasswordTab.setVisibility(View.VISIBLE);
+                            forgotPasswordTab.setTextColor(Color.RED);
                         }
                     });
         } else { }
     }
 
     public void onSignUpOptionsClick(View view) {
-        signUpOptions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginOptionsFragments loginOptionsFragments = new LoginOptionsFragments();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.optionsViewFragment, loginOptionsFragments);
-                transaction.addToBackStack(null);
-                transaction.commit();
-            }
+        signUpOptions.setOnClickListener(v -> {
+            LoginOptionsFragments loginOptionsFragments = new LoginOptionsFragments();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.optionsViewFragment, loginOptionsFragments);
+            transaction.addToBackStack(null);
+            transaction.commit();
         });
     }
 

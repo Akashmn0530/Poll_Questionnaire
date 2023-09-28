@@ -19,7 +19,7 @@
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="750dp"
             android:id="@+id/relativeLayout2"
             android:layout_below="@+id/relativeLayout1">
 

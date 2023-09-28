@@ -30,7 +30,7 @@ public class AdminLogin extends AppCompatActivity {
     EditText username_edit, password_edit;
     ProgressBar progressBar;
     FirebaseAuth mAuth;
-
+    public static String loginId;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +50,14 @@ public class AdminLogin extends AppCompatActivity {
         register(registerTab);
 
         login_btn = findViewById(R.id.submitButton);
-        //loginValidate(login_btn);
-        login_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AdminHome.class);
-                startActivity(intent);
-            }
-        });
+        loginValidate(login_btn);
+//        login_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), AdminHome.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     public void onTabClick(View view) {
@@ -102,6 +102,7 @@ public class AdminLogin extends AppCompatActivity {
                 }
                 else {
                     progressBar.setVisibility(View.VISIBLE);
+                    loginId = username_edit.getText().toString();
                     performLogin(username_edit.getText().toString(), password_edit.getText().toString());
                 }
             }

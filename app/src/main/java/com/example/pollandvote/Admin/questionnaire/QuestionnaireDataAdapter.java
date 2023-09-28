@@ -1,6 +1,5 @@
 package com.example.pollandvote.Admin.questionnaire;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +14,10 @@ import java.util.List;
 import java.util.Map;
 
 public class QuestionnaireDataAdapter extends RecyclerView.Adapter<QuestionnaireDataAdapter.PollViewHolder> {
-    private List<QuestionnaireData> pollDataList;
+    private List<QuestionnaireData> questionnaireDataList;
 
-    public QuestionnaireDataAdapter(List<QuestionnaireData> pollDataList) {
-        this.pollDataList = pollDataList;
+    public QuestionnaireDataAdapter(List<QuestionnaireData> questionnaireDataList) {
+        this.questionnaireDataList = questionnaireDataList;
     }
 
     @NonNull
@@ -29,37 +28,46 @@ public class QuestionnaireDataAdapter extends RecyclerView.Adapter<Questionnaire
         return new PollViewHolder(itemView);
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull PollViewHolder holder, int position) {
-        QuestionnaireData pollData = pollDataList.get(position);
-        holder.questionTextView.setText(pollData.getQuestion());
+        QuestionnaireData questionnaireData = questionnaireDataList.get(position);
+        holder.questionTextView.setText(questionnaireData.getQuestion());
+
+        // Display selection type
+        holder.selectionTypeTextView.setText("Selection Type: " + questionnaireData.getSelectionType());
 
         // Display poll options
-        Map<String, String> options = pollData.getOptions();
+        Map<String, String> options = questionnaireData.getOptions();
         StringBuilder optionsText = new StringBuilder();
         for (Map.Entry<String, String> entry : options.entrySet()) {
             optionsText.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
         }
         holder.optionsTextView.setText(optionsText.toString());
 
-        // Display correct answer
-        holder.correctAnswerTextView.setText("Correct Answer: " + pollData.getCorrectAnswer());
+        // Display correct answers
+        List<String> correctAnswersList = questionnaireData.getCorrectAnswers();
+        StringBuilder correctAnswersText = new StringBuilder("Correct Answers:\n");
+        for (String answer : correctAnswersList) {
+            correctAnswersText.append(answer).append("\n");
+        }
+        holder.correctAnswerTextView.setText(correctAnswersText.toString());
     }
 
     @Override
     public int getItemCount() {
-        return pollDataList.size();
+        return questionnaireDataList.size();
     }
 
     static class PollViewHolder extends RecyclerView.ViewHolder {
         TextView questionTextView;
+        TextView selectionTypeTextView;
         TextView optionsTextView;
         TextView correctAnswerTextView;
 
         PollViewHolder(@NonNull View itemView) {
             super(itemView);
             questionTextView = itemView.findViewById(R.id.questionTextView);
+            selectionTypeTextView = itemView.findViewById(R.id.selectionTypeTextView);
             optionsTextView = itemView.findViewById(R.id.optionsTextView);
             correctAnswerTextView = itemView.findViewById(R.id.correctAnswerTextView);
         }

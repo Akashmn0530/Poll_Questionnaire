@@ -3,19 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_marginBottom="50dp"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context="com.example.pollandvote.Admin.questionnaire.QuestionnaireActivity">
 
+    <!-- Header TextView -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Admin Questioner"
-        android:layout_marginLeft="80dp"
+        android:text="Admin Questionnaire"
+        android:layout_marginLeft="61dp"
         android:textColor="@color/black"
         android:textSize="30dp"
         />
 
+    <!-- Main Content Layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,17 +26,8 @@
         android:layout_marginTop="20dp"
         android:orientation="vertical"
         >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:text="Add  Questions"
-            android:layout_gravity="center"
-            android:layout_marginLeft="70dp"
-            android:textColor="@color/black"
-            android:layout_marginTop="25dp"
-            android:textSize="20dp"
-            android:padding="10dp"
-            />
+
+        <!-- EditText for Question ID -->
         <EditText
             android:layout_width="350dp"
             android:layout_height="50dp"
@@ -42,7 +36,22 @@
             android:textSize="20dp"
             android:background="@drawable/square"
             android:layout_marginStart="15sp"
+            android:layout_marginTop="19dp"
             />
+
+        <!-- Add Question TextView -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Add Question:"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="25dp"
+            android:textSize="20dp"
+            android:padding="5dp"
+            />
+
+        <!-- EditText for Adding Question -->
         <EditText
             android:id="@+id/edittxtaddpoll"
             android:layout_marginTop="15dp"
@@ -54,21 +63,27 @@
             android:background="@drawable/square"
             android:inputType="textMultiLine"
             />
+
+        <!-- Add Options TextView -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:padding="10dp"
             android:layout_marginTop="10dp"
-            android:text="Add Options"
+            android:text="Add Options:"
             android:textSize="20dp"
             android:textColor="@color/black"
             />
+
+        <!-- Container for Poll Options -->
         <LinearLayout
-            android:id="@+id/pollOptionsContainer"
+            android:id="@+id/QuestionnaireOptionsContainer"
             android:layout_gravity="center"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
+
+        <!-- Add and Remove Option Icons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,20 +110,25 @@
 
         </LinearLayout>
 
+
+
     </LinearLayout>
 
+    <!-- Correct Answer Layout -->
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <!-- Label for Correct Answer -->
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
+            android:layout_height="35dp"
             android:text="Enter the correct answer: "
             android:textSize="20dp"
-            android:layout_marginStart="0dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="550dp"/>
+            android:layout_marginTop="480dp"/>
+
+        <!-- EditText for Correct Answer -->
         <EditText
             android:id="@+id/editTextCorrectAnswer"
             android:layout_width="wrap_content"
@@ -116,11 +136,29 @@
             android:hint="Enter Answer"
             android:textSize="20dp"
             android:background="@drawable/square"
-
-            android:layout_marginTop="550dp"
+            android:layout_marginTop="480dp"
             android:layout_marginStart="240dp"
             android:inputType="text" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Select Radio or Check Box: "
+            android:textSize="20dp"
+            android:layout_marginStart="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="530dp"/>
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            app:layout_goneMarginTop="650dp"
+            android:layout_marginTop="530dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="228dp"
+            android:layout_marginLeft="260dp"
+            tools:layout_editor_absoluteY="561dp" />
 
+        <!-- View Data Button -->
         <Button
             android:id="@+id/viewdata"
             android:layout_width="80dp"
@@ -130,9 +168,9 @@
             android:text="View Data"
             android:layout_marginStart="125dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="600dp"/>
+            android:layout_marginTop="575dp"/>
 
-
+        <!-- Arrow Button -->
         <ImageView
             android:id="@+id/nextarrow"
             android:layout_width="45dp"
@@ -142,7 +180,8 @@
             android:layout_marginEnd="30dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="600dp"
+            android:layout_marginTop="575dp"
             android:src="@drawable/baseline_arrowforward" />
+
     </RelativeLayout>
 </RelativeLayout>

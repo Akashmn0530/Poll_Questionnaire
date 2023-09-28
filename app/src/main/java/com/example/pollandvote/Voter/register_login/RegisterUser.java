@@ -56,7 +56,7 @@ public class RegisterUser extends AppCompatActivity {
         register(sign_up_btn);
 
         login_btn.setOnClickListener(view1 -> {
-            Intent intent = new Intent(getApplicationContext(), AdminLogin.class);
+            Intent intent = new Intent(getApplicationContext(), LoginUser.class);
             startActivity(intent);
         });
     }
