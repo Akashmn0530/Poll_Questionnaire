@@ -27,6 +27,6 @@
 
         </RelativeLayout>
         <!--        bottom navigation  -->
-        <include layout="@layout/bottom_nav_spt"/>
+        <include layout="@layout/bottom_nav_spt_user"/>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

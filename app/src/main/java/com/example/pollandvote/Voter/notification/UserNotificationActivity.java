@@ -3,6 +3,7 @@ package com.example.pollandvote.Voter.notification;
 import android.annotation.SuppressLint;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -39,18 +40,24 @@ public class UserNotificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_notification);
         progressBar = findViewById(R.id.idProgressBar1);
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView = findViewById(R.id.bottomNavigationViewUser);
 
         topbarImage  = findViewById(R.id.saveChanges);
         UniversalImageLoader.setImage("", topbarImage, null, "");
 
+        //Notifications...
+        findViewById(R.id.userNotifications).setOnClickListener(view ->this.startActivity(new Intent(this, UserNotificationActivity.class)));
+
         //Notification indicator
-        BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.navigation_notifications);
+        BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.navigation_friend);
         badgeDrawable.setVisible(false);
 
         //Bottom Nav
-        bottomNavigationView.setSelectedItemId(R.id.navigation_notifications);
-        UserBottomNavigation.bottomNavProvider(bottomNavigationView,getApplicationContext());
+        bottomNavigationView.setSelectedItemId(R.id.navigation_friend);
+        UserBottomNavigation.bottomNavProvider(
+                bottomNavigationView,
+                getApplicationContext(),
+                getWindow().getDecorView().getRootView());
 
         //Recycler View
         RecyclerView recyclerView = findViewById(R.id.rv_notification_list);

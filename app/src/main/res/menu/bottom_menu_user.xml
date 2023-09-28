@@ -17,7 +17,7 @@
         android:title="@string/home" />
     <item
         android:id="@+id/navigation_friend"
-        android:icon="@drawable/ic_following"
+        android:icon="@drawable/baseline_supervisor_account_24"
         android:title="@string/following" />
     <item
         android:id="@+id/navigation_profile_user"

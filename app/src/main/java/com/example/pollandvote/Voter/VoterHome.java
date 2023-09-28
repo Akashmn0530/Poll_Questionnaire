@@ -2,6 +2,8 @@ package com.example.pollandvote.Voter;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.pollandvote.Admin.Utils.UniversalImageLoader;
@@ -17,6 +20,7 @@ import com.example.pollandvote.Admin.homescreen.AdminHomeViewFragment;
 import com.example.pollandvote.R;
 import com.example.pollandvote.Voter.bottom_nav.UserBottomNavigation;
 import com.example.pollandvote.Voter.bottom_nav.UserTopPopMenu;
+import com.example.pollandvote.Voter.notification.UserNotificationActivity;
 import com.example.pollandvote.chatbot.ChatBotActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -32,13 +36,20 @@ public class VoterHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voter_home);
         initImageLoader();
+
         // Bottom layout
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
-        UserBottomNavigation.bottomNavProvider(bottomNavigationView, getApplicationContext());
+        bottomNavigationView = findViewById(R.id.bottomNavigationViewUser);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home_user);
+        UserBottomNavigation.bottomNavProvider(
+                        bottomNavigationView,
+                        getApplicationContext(),
+                        getWindow().getDecorView().getRootView());
 
         topBarImage = findViewById(R.id.saveChanges);
         UniversalImageLoader.setImage("", topBarImage, null, "");
+
+        //Notifications...
+        findViewById(R.id.userNotifications).setOnClickListener(view ->this.startActivity(new Intent(this, UserNotificationActivity.class)));
 
         //side button handling...
         titleFragment = findViewById(R.id.fragmentTitleTextView);
@@ -67,7 +78,6 @@ public class VoterHome extends AppCompatActivity {
             sideChatBotImage.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nofocus));
         });
         topBarImage.setOnClickListener(v -> {
-            Log.d("Akash", "onClick: image clicked");
             UserTopPopMenu.showPopMenu(v, VoterHome.this);
         });
 
