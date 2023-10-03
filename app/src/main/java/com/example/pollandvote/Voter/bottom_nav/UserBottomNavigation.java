@@ -19,6 +19,7 @@ import com.example.pollandvote.Admin.questionnaire.QuestionnaireActivity;
 import com.example.pollandvote.R;
 import com.example.pollandvote.Voter.VoterHome;
 import com.example.pollandvote.Voter.notification.UserNotificationActivity;
+import com.example.pollandvote.Voter.user_poll.UserPollActivity;
 import com.example.pollandvote.Voter.user_questionnaire.UserQuestionerActivity;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -40,6 +41,18 @@ public class UserBottomNavigation{
                     }
                     else if (idd == R.id.navigation_poll_user) {
                         // Poll logic
+                        Intent intent=new Intent(context, UserPollActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                    }
+                    else if (idd == R.id.navigation_dashboard_user) {
+                        // Dashboard logic
+                        Intent intent=new Intent(context, UserQuestionerActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                    }
+                    else if (idd == R.id.navigation_friend) {
+                         //Follow logic...
                         //notification button
                         ImageView imageView = view.findViewById(R.id.userNotifications);
                         Drawable vectorDrawable = ContextCompat.getDrawable(context, R.drawable.baseline_favorite_24);
@@ -48,19 +61,7 @@ public class UserBottomNavigation{
                             imageView.setImageDrawable(vectorDrawable);
                         }
                         //Sending notifications
-                        SendNotifications.sendNotificationOperations(context);
-                        Log.d("Akash","top 51");
-                    }
-                    else if (idd == R.id.navigation_dashboard_user) {
-                        // Dashboard logic
-                        Intent intent=new Intent(context, UserQuestionerActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        Log.d("Akash","top 51");
-                        context.startActivity(intent);
-                    }
-                    else if (idd == R.id.navigation_friend) {
-                         //Follow logic...
-
+                        SendNotifications.sendNotificationOperations(context,"Akash","New Friend request arrived...");
                     }
                     else if (idd == R.id.navigation_profile_user) {
                         // Profile logic

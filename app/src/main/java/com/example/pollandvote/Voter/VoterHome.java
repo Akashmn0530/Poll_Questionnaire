@@ -27,9 +27,10 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class VoterHome extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+    ImageView topBarImage;
     LinearLayout sidePollImage, sideQuestionsImage, sideChatBotImage;
     TextView titleFragment;
-    ImageView topBarImage;
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -41,7 +42,6 @@ public class NotificationActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.idProgressBar1);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-
         topbarImage  = findViewById(R.id.saveChanges);
         UniversalImageLoader.setImage("", topbarImage, null, "");
 
@@ -75,12 +75,9 @@ public class NotificationActivity extends AppCompatActivity {
         topbarImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // Log.d(TAG, "onClick: image clicked");
                 TopPopMenu.showPopMenu(v, NotificationActivity.this);
             }
         });
-
     }
     //Delete pop up
     @SuppressLint("NotifyDataSetChanged")
@@ -95,13 +92,17 @@ public class NotificationActivity extends AppCompatActivity {
             // Delete the document in notifications in firebase and update the fields
         });
         builder.setNegativeButton("Cancel", null);
-
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
     private void clearNotifications() {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//        StatusBarNotification[] activeNotifications = notificationManager.getActiveNotifications();
+//        return activeNotifications.length > 0;
+//        if(notificationManager != null) {
+//            Log.d("Akash", notificationManager + " notifications clear...");
+//        }
         notificationManager.cancelAll();
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Voter.notification.UserNotificationActivity">
+    tools:context=".Admin.Polls.PollListActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -12,16 +12,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/relativeLayout1">
-                <include layout="@layout/top_nav_spt_user"/>
+
+            <include layout="@layout/top_nav_spt"/>
+
+
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="690dp"
+            android:layout_height="750dp"
             android:id="@+id/relativeLayout2"
             android:layout_below="@+id/relativeLayout1">
-                <include layout="@layout/user_questionner_body" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
         </RelativeLayout>
+
         <!--        bottom navigation  -->
-        <include layout="@layout/bottom_nav_spt_user"/>
+        <include layout="@layout/bottom_nav_spt"/>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+

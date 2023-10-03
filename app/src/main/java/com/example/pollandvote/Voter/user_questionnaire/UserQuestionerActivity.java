@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -14,36 +16,58 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pollandvote.Admin.Utils.UniversalImageLoader;
 import com.example.pollandvote.Admin.questionnaire.QuestionnaireData;
 import com.example.pollandvote.R;
+import com.example.pollandvote.Voter.VoterHome;
+import com.example.pollandvote.Voter.bottom_nav.UserBottomNavigation;
+import com.example.pollandvote.Voter.bottom_nav.UserTopPopMenu;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class UserQuestionerActivity extends AppCompatActivity {
-
+    BottomNavigationView bottomNavigationView;
+    ImageView topBarImage;
     private RecyclerView userPollRecyclerView;
     private Button submitAnswersButton;
     private List<QuestionnaireData> questionnaireDataList;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire_poll);
+        initImageLoader();
+
+        // Bottom layout
+        bottomNavigationView = findViewById(R.id.bottomNavigationViewUser);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_dashboard_user);
+        UserBottomNavigation.bottomNavProvider(
+                bottomNavigationView,
+                getApplicationContext(),
+                getWindow().getDecorView().getRootView());
+
+        topBarImage = findViewById(R.id.saveChanges);
+        UniversalImageLoader.setImage("", topBarImage, null, "");
+
+        progressBar = findViewById(R.id.progress_bar_qn);
 
         userPollRecyclerView = findViewById(R.id.userPollRecyclerView);
         submitAnswersButton = findViewById(R.id.submitAnswersButton);
 
         questionnaireDataList = new ArrayList<>();
-
         UserQuestionnaireAdapter adapter = new UserQuestionnaireAdapter(questionnaireDataList);
         userPollRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         userPollRecyclerView.setAdapter(adapter);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("QuestionnaireData");
@@ -55,8 +79,10 @@ public class UserQuestionerActivity extends AppCompatActivity {
                 for (DataSnapshot pollSnapshot : dataSnapshot.getChildren()) {
                     QuestionnaireData questionnaireData = pollSnapshot.getValue(QuestionnaireData.class);
                     questionnaireDataList.add(questionnaireData);
+                    progressBar.setVisibility(View.GONE);
                 }
                 adapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
@@ -70,6 +96,9 @@ public class UserQuestionerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 checkAnswers();
             }
+        });
+        topBarImage.setOnClickListener(v -> {
+            UserTopPopMenu.showPopMenu(v, UserQuestionerActivity.this);
         });
     }
 
@@ -115,5 +144,9 @@ public class UserQuestionerActivity extends AppCompatActivity {
         int totalQuestions = questionnaireDataList.size();
         String resultMessage = "You answered " + correctAnswers + " out of " + totalQuestions + " questions correctly.";
         Toast.makeText(this, resultMessage, Toast.LENGTH_LONG).show();
+    }
+    private void initImageLoader() {
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(this);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 }

@@ -21,6 +21,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Admin.Polls.PollActivity"
+            android:exported="false" />
+        <activity android:name=".Admin.Polls.PollListActivity"
+            android:exported="false"/>
+        <activity android:name=".Voter.user_poll.UserPollActivity"
+            android:exported="false"
+            />
+        <activity
             android:name=".Voter.utils.UserFeedbackActivity"
             android:exported="false" />
         <activity

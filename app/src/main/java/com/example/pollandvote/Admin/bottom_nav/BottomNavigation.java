@@ -3,6 +3,7 @@ package com.example.pollandvote.Admin.bottom_nav;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.pollandvote.Admin.Polls.PollActivity;
 import com.example.pollandvote.Admin.homescreen.AdminHome;
 import com.example.pollandvote.Admin.Profiles.AdminProfile;
 import com.example.pollandvote.Admin.Notification.NotificationActivity;
@@ -15,7 +16,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomNavigation {
     private static boolean isHandlingNavigation = false;
-    static BadgeDrawable badgeDrawable;
     public static void bottomNavProvider(BottomNavigationView bottomNavigationView, Context context) {
         bottomNavigationView.setOnItemSelectedListener(
                 item -> {
@@ -32,11 +32,10 @@ public class BottomNavigation {
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                     } else if (idd == R.id.navigation_poll) {
-                        // Poll logic
-                        badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.navigation_notifications);
-                        SendNotifications.showNewNotifications(badgeDrawable);
-                        //Sending notifications
-                        SendNotifications.sendNotificationOperations(context);
+                        // Poll logic PollActivity
+                        Intent intent=new Intent(context, PollActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
                     } else if (idd == R.id.navigation_dashboard) {
                         // Dashboard logic
                         Intent intent=new Intent(context, QuestionnaireActivity.class);

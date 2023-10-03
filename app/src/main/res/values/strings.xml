@@ -44,6 +44,15 @@
     <string name="dbname_questionnairedata">QuestionnaireData</string>
     <string name="following">Following</string>
 
+    <!--    poll db names-->
+
+    <string name="dbname_question">question</string>
+    <string name="dbname_options">options</string>
+    <string name="dbname_polloption">pollOption</string>
+    <string name="dbname_count">count</string>
+    <string name="dbname_adminpolldata">AdminPollData</string>
+    <string name="dbname_totalcount">totalCount</string>
+
     <string-array name="languages">
         <item>radio</item>
         <item>checkbox</item>

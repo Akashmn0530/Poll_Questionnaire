@@ -12,14 +12,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/relativeLayout1">
-                <include layout="@layout/top_nav_spt_user"/>
+
+            <include layout="@layout/top_nav_spt_user"/>
+
+
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="690dp"
+            android:layout_height="700dp"
             android:id="@+id/relativeLayout2"
             android:layout_below="@+id/relativeLayout1">
-                <include layout="@layout/user_questionner_body" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/userPollRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
         </RelativeLayout>
         <!--        bottom navigation  -->
         <include layout="@layout/bottom_nav_spt_user"/>
